@@ -91,7 +91,7 @@ h2.big{font-size:clamp(2.4rem,9vw,3.4rem);margin-bottom:12px;color:var(--deep)}
 .ev .f .w3{grid-column:1/-1}
 
 
-/* PENUMPANG: boarding pass */
+/* Passenger: boarding pass */
 .pass{position:relative;display:grid;grid-template-columns:1fr 98px;background:#fff;border-top:6px solid var(--blue);border-radius:14px;box-shadow:0 12px 30px rgba(20,48,90,.12)}
 .pass + .pass{border-top-color:var(--amber)}
 .pl{padding:14px 14px 16px 18px;min-width:0}
@@ -195,9 +195,9 @@ footer small{opacity:.75}
     <div class="tb">
       <span class="lb">Kepada Yth.</span>
       <strong class="pn" id="guest">Tamu Undangan</strong>
-      <div class="route"><div><b>NES</b><small>Fajar</small></div><div class="mid"><i></i><svg class="plane" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z" fill="currentColor"/></svg></div><div><b>RKA</b><small>Nesti</small></div></div>
+      <div class="route"><div><b>JAR</b><small>Fajar</small></div><div class="mid"><i></i><svg class="plane" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z" fill="currentColor"/></svg></div><div><b>NES</b><small>Nesti</small></div></div>
       <div class="f">
-        <div><span class="lb">Penerbangan</span><b>NR 1219</b></div>
+        <div><span class="lb">Flight</span><b>JN 2611</b></div>
         <div><span class="lb">Date</span><b>26 Nov 2026</b></div>
         <div><span class="lb">Boarding</span><b>08.30</b></div>
       </div>
@@ -205,7 +205,7 @@ footer small{opacity:.75}
     <div class="perf"></div>
     <div class="stub">
       <div class="barcode"></div>
-      <button id="openBtn" type="button">Check-in &amp; Buka Undangan</button>
+      <button id="openBtn" type="button">Check-in &amp; Open Invitation</button>
     </div>
   </div>
 </div>
@@ -215,25 +215,25 @@ footer small{opacity:.75}
 <header class="hero">
   <svg class="fp" viewBox="0 0 400 800" preserveAspectRatio="none" aria-hidden="true"><path d="M-10 720 C 120 620, 30 420, 200 320 S 380 110, 420 60" fill="none" stroke="#2563A8" stroke-width="2" stroke-dasharray="3 10" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
   <div class="ticket">
-    <div class="band"><span>Boarding Pass</span><span>Kami menikah</span></div>
+    <div class="band"><span>Boarding Pass</span><span>Wedding Airlines</span></div>
     <div class="tb">
-      <span class="lb">Penumpang</span>
+      <span class="lb">Passenger</span>
       <h1>Fajar<span class="and">&amp;</span>Nesti</h1>
-      <div class="route"><div><b>NES</b><small>Fajar</small></div><div class="mid"><i></i><svg class="plane" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z" fill="currentColor"/></svg></div><div><b>RKA</b><small>Nesti</small></div></div>
+      <div class="route"><div><b>JAR</b><small>Fajar</small></div><div class="mid"><i></i><svg class="plane" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z" fill="currentColor"/></svg></div><div><b>NES</b><small>Nesti</small></div></div>
       <div class="f">
-        <div><span class="lb">Hari</span><b>Sabtu</b></div>
+        <div><span class="lb">Day</span><b>Thursday</b></div>
         <div><span class="lb">Date</span><b>26 Nov 2026</b></div>
-        <div><span class="lb">Kelas</span><b>Selamanya</b></div>
+        <div><span class="lb">Class</span><b>Forever</b></div>
       </div>
     </div>
     <div class="perf"></div>
     <div class="stub">
-      <span class="lb">Boarding dalam</span>
+      <span class="lb">Boarding at</span>
       <div class="cd">
-        <div><b id="d">0</b><span>hari</span></div>
-        <div><b id="h">0</b><span>jam</span></div>
-        <div><b id="m">0</b><span>menit</span></div>
-        <div><b id="s">0</b><span>detik</span></div>
+        <div><b id="d">0</b><span>Day</span></div>
+        <div><b id="h">0</b><span>Hour</span></div>
+        <div><b id="m">0</b><span>Minute</span></div>
+        <div><b id="s">0</b><span>Second</span></div>
       </div>
       <div class="barcode"></div>
     </div>
@@ -243,52 +243,52 @@ footer small{opacity:.75}
 <section class="quote">
   <div class="wrap">
     <h2>Dua tujuan, satu perjalanan.</h2>
-    <p>Dengan penuh syukur, kami ingin berbagi hari istimewa ini bersama orang-orang yang kami sayangi. Kehadiran dan doa kamu adalah hadiah terindah buat kami.</p>
+    <p>Dengan penuh syukur, kami ingin berbagi Day istimewa ini bersama orang-orang yang kami sayangi. Kehadiran dan doa kamu adalah hadiah terindah buat kami.</p>
   </div>
 </section>
 
 <section class="paper">
   <div class="wrap couple">
-    <!-- Foto penumpang: Fajar.jpg dan Nesti.jpg di folder yang sama. Ganti username Instagram di bawah. -->
+    <!-- Foto Passenger: Fajar.jpg dan Nesti.jpg di folder yang sama. Ganti username Instagram di bawah. -->
     <div class="pass">
       <div class="pl">
-        <span class="lb">Penumpang 1</span>
+        <span class="lb">Passenger 1</span>
         <div class="who">
           <div class="avatar">N<img src="Fajar.jpg" alt="Foto Fajar Annisa" onerror="this.remove()"></div>
           <div>
-            <h3>Fajar Annisa</h3>
-            <a class="ig" href="https://instagram.com/username_Fajar" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>@username_Fajar</a>
+            <h3>Muhammad Fajar Firdaus Rozie</h3>
+            <a class="ig" href="https://instagram.com/noworld.id" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>@username_Fajar</a>
           </div>
         </div>
         <div class="f2">
-          <div><span class="lb">Penerbangan</span><b>NR 1219</b></div>
-          <div><span class="lb">Kelas</span><b>Selamanya</b></div>
+          <div><span class="lb">Flight</span><b>JN 2611</b></div>
+          <div><span class="lb">Class</span><b>Forever</b></div>
         </div>
       </div>
       <div class="ps">
         <span class="lb">Seat</span>
-        <b class="seat">1A</b>
+        <b class="seat">11N</b>
         <div class="barcode"></div>
       </div>
     </div>
     <div class="pass">
       <div class="pl">
-        <span class="lb">Penumpang 2</span>
+        <span class="lb">Passenger 2</span>
         <div class="who">
           <div class="avatar">R<img src="Nesti.jpg" alt="Foto Nesti [Nama Belakang]" onerror="this.remove()"></div>
           <div>
-            <h3>Nesti [Nama Belakang]</h3>
-            <a class="ig" href="https://instagram.com/username_Nesti" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>@username_Nesti</a>
+            <h3>Nesti Annisa Suprianti</h3>
+            <a class="ig" href="https://instagram.com/nestiannisa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>@username_Nesti</a>
           </div>
         </div>
         <div class="f2">
-          <div><span class="lb">Penerbangan</span><b>NR 1219</b></div>
-          <div><span class="lb">Kelas</span><b>Selamanya</b></div>
+          <div><span class="lb">Flight</span><b>JN 2611</b></div>
+          <div><span class="lb">Class</span><b>Forever</b></div>
         </div>
       </div>
       <div class="ps">
         <span class="lb">Seat</span>
-        <b class="seat">1B</b>
+        <b class="seat">8M</b>
         <div class="barcode"></div>
       </div>
     </div>
@@ -298,10 +298,10 @@ footer small{opacity:.75}
 <!-- DETAIL ACARA -->
 <section class="dark">
   <div class="wrap">
-    <h2>Jadwal Penerbangan</h2>
+    <h2>Jadwal Flight</h2>
     <div class="events">
       <div class="ev">
-        <div class="band"><span>Penerbangan 1</span><span>NR 1219-A</span></div>
+        <div class="band"><span>Flight 1</span><span>JN 2611-A</span></div>
         <div class="evb">
           <h3>Akad Nikah</h3>
           <div class="f">
@@ -321,7 +321,7 @@ footer small{opacity:.75}
         </div>
       </div>
       <div class="ev">
-        <div class="band"><span>Penerbangan 2</span><span>NR 1219-B</span></div>
+        <div class="band"><span>Flight 2</span><span>JN 2611-B</span></div>
         <div class="evb">
           <h3>Resepsi</h3>
           <div class="f">
@@ -404,7 +404,7 @@ footer small{opacity:.75}
               <div><span class="lb">Date</span><b>26 Nov 2026</b></div>
             </div>
           </div>
-          <h3>Hari-H</h3>
+          <h3>Day-H</h3>
           <p>Tujuan berikutnya: rumah baru. Terima kasih sudah ikut jadi bagian ceritanya.</p>
           <div class="rs"><span>BERANGKAT</span><b>Karawang</b><span>26 Nov 2026</span></div>
         </div>
@@ -417,8 +417,8 @@ footer small{opacity:.75}
     <p class="hint">Tap sampul untuk membuka, lalu geser atau pakai panah untuk membalik halaman.</p>
 <h3 class="stats-h">Statistik Perjalanan</h3>
     <div class="stats">
-      <div class="st"><b data-to="1460">1.460</b><span>hari bersama</span></div>
-      <div class="st"><b data-to="12">12</b><span>kota dikunjungi</span></div>
+      <div class="st"><b data-to="1460">1.460</b><span>Day bersama</span></div>
+      <div class="st"><b data-to="20">20</b><span>kota dikunjungi</span></div>
       <div class="st"><b data-to="999">999</b><span>kali bilang "terserah"</span></div>
     </div>
   </div>
@@ -460,7 +460,7 @@ footer small{opacity:.75}
   </div>
 </section>
 
-<section class="soft">
+<!-- <section class="soft">
   <div class="wrap">
     <div class="gift">
       <p>Doa restu kamu sudah lebih dari cukup. Kalau mau berbagi kado, bisa lewat:</p>
@@ -469,11 +469,11 @@ footer small{opacity:.75}
       <button type="button" id="cp">Salin Nomor</button>
     </div>
   </div>
-</section>
+</section> -->
 
 <footer>
   <h2>Sampai jumpa di tujuan</h2>
-  <p>Terima kasih sudah terbang bersama kami di hari bahagia ini.</p>
+  <p>Terima kasih sudah terbang bersama kami di Day bahagia ini.</p>
   <div class="barcode"></div>
   <small>Fajar &amp; Nesti</small>
 </footer>
@@ -481,7 +481,7 @@ footer small{opacity:.75}
 <script>
 /* ===== PENGATURAN: ganti bagian ini saja ===== */
 var CONFIG = {
-  date: '2026-12-19T09:00:00+07:00',   // Date & jam akad (dipakai countdown)
+  date: '2026-11-26T09:00:00+07:00',   // Date & jam akad (dipakai countdown)
   wa: '6281200000000',                 // nomor WhatsApp, format 62...
   music: 'musik.mp3',                  // file musik di folder yang sama (kosongkan '' kalau tidak pakai file)
   musicBuiltin: true,                  // true = kalau file tidak ada, pakai musik piano bawaan; false = tanpa musik
