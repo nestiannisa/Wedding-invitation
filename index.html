@@ -171,7 +171,8 @@ form button{justify-self:center}
 #wishes{margin-top:30px;max-height:440px;overflow-y:auto;display:grid;gap:12px;padding-right:4px}
 .wish{position:relative;background:#fff;border-radius:8px 18px 18px 8px;padding:14px 18px 14px 48px;box-shadow:0 4px 14px rgba(20,48,90,.08)}
 .wish::before{content:"";position:absolute;left:17px;top:19px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--line)}
-.wish b{font-family:var(--head);font-weight:600;font-size:1.3rem;color:var(--deep)}
+.wish p{white-space:pre-wrap;overflow-wrap:anywhere}
+.wish b{overflow-wrap:anywhere;font-family:var(--head);font-weight:600;font-size:1.3rem;color:var(--deep)}
 .wish time{display:block;font-size:.78rem;color:var(--muted);margin-bottom:4px}
 .wish p{margin:0;overflow-wrap:anywhere;white-space:pre-line}
 .empty{text-align:center;color:var(--muted)}
@@ -428,12 +429,17 @@ footer small{opacity:.75}
 <section class="paper">
   <div class="wrap gb">
     <h2 class="big">Buku Tamu</h2>
+    <p class="center">Nama dan ucapanmu dapat dibaca semua pengunjung.</p>
     <form id="gbForm">
+      <p hidden><label>Jangan diisi<input id="gbBot" tabindex="-1" autocomplete="off"></label></p>
       <label>Nama<input id="gbNama" required maxlength="60" placeholder="Nama kamu"></label>
       <label>Ucapan &amp; doa<textarea id="gbPesan" required maxlength="300" placeholder="Tulis ucapan untuk kami"></textarea></label>
       <button type="submit" id="gbBtn">Kirim Ucapan</button>
     </form>
-    <div id="wishes" aria-live="polite"></div>
+    <p id="gbStatus" role="status"></p>
+    <div id="wishes" aria-label="Ucapan dari para tamu" aria-live="polite"></div>
+    <p id="gbLoadStatus" role="status"></p>
+    <button type="button" id="gbMore" hidden>Lihat ucapan lainnya</button>
   </div>
 </section>
 
@@ -461,10 +467,7 @@ var CONFIG = {
   date: '2026-11-26T09:00:00+07:00',   // Date & jam akad (dipakai countdown)
   wa: '6281200000000',                 // nomor WhatsApp, format 62...
   music: 'FOREVER WITH YOU.mp3',                  // file musik di folder yang sama (kosongkan '' kalau tidak pakai file)
-  musicBuiltin: true,                  // true = kalau file tidak ada, pakai musik piano bawaan; false = tanpa musik
-  supabaseUrl: '',                     // contoh: https://abcd1234.supabase.co
-  supabaseKey: '',                     // anon public key dari Supabase
-  table: 'ucapan'
+  musicBuiltin: true                   // true = kalau file tidak ada, pakai musik piano bawaan; false = tanpa musik
 };
 /* ============================================= */
 (function(){
@@ -565,14 +568,11 @@ var CONFIG = {
       .catch(function(){btn.disabled=false;btn.textContent='Konfirmasi Check-in';alert('Maaf, konfirmasi belum terkirim. Coba lagi ya.');});
   });
 
-  // Buku tamu (Supabase; kalau belum diisi, mode demo di perangkat ini saja)
-  var useDb=!!(CONFIG.supabaseUrl&&CONFIG.supabaseKey);
-  if(!useDb)console.warn('Buku tamu masih mode demo (localStorage). Isi supabaseUrl & supabaseKey di CONFIG.');
-  var api=CONFIG.supabaseUrl+'/rest/v1/'+CONFIG.table;
-  var hdr={apikey:CONFIG.supabaseKey,Authorization:'Bearer '+CONFIG.supabaseKey};
+  // Buku tamu publik, tersimpan di Netlify Database.
+  var nextWish=null,wishSubmissionId=crypto.randomUUID();
   function fmt(iso){try{return new Date(iso).toLocaleString('id-ID',{day:'numeric',month:'long',year:'numeric',hour:'2-digit',minute:'2-digit'});}catch(e){return '';}}
-  function render(list){
-    var box=$('wishes');box.textContent='';
+  function render(list,append){
+    var box=$('wishes');if(!append)box.textContent='';
     if(!list.length){var p=document.createElement('p');p.className='empty';p.textContent='Belum ada ucapan. Jadi yang pertama ya!';box.appendChild(p);return;}
     list.forEach(function(w){
       var c=document.createElement('div');c.className='wish';
@@ -582,29 +582,40 @@ var CONFIG = {
       c.appendChild(n);c.appendChild(t);c.appendChild(m);box.appendChild(c);
     });
   }
-  function local(){try{return JSON.parse(localStorage.getItem('ucapan')||'[]');}catch(e){return [];}}
-  function load(){
-    if(!useDb){render(local());return Promise.resolve();}
-    return fetch(api+'?select=nama,pesan,created_at&order=created_at.desc&limit=50',{headers:hdr})
-      .then(function(r){if(!r.ok)throw 0;return r.json();}).then(render)
-      .catch(function(){$('wishes').textContent='Ucapan belum bisa dimuat.';});
+  function load(append){
+    var more=$('gbMore');more.disabled=true;
+    $('gbLoadStatus').textContent='Memuat ucapan...';
+    return fetch('/api/guestbook'+(append&&nextWish?'?before='+nextWish:''))
+      .then(function(r){if(!r.ok)throw 0;return r.json();})
+      .then(function(result){
+        render(result.messages,append);nextWish=result.next;
+        more.hidden=!nextWish;more.textContent='Lihat ucapan lainnya';
+        $('gbLoadStatus').textContent='';
+      })
+      .catch(function(){
+        $('gbLoadStatus').textContent='Ucapan belum bisa dimuat. Silakan coba lagi.';
+        more.hidden=false;more.textContent='Coba muat lagi';
+      }).finally(function(){more.disabled=false;});
   }
+  $('gbMore').addEventListener('click',function(){load(!!nextWish);});
   $('gbForm').addEventListener('submit',function(e){
     e.preventDefault();
-    var btn=$('gbBtn'),item={nama:$('gbNama').value.trim(),pesan:$('gbPesan').value.trim()};
+    var btn=$('gbBtn'),item={nama:$('gbNama').value.trim(),pesan:$('gbPesan').value.trim(),
+      submission_id:wishSubmissionId,'bot-field':$('gbBot').value};
     if(!item.nama||!item.pesan)return;
-    btn.disabled=true;btn.textContent='Mengirim...';
-    var done=function(){$('gbPesan').value='';btn.disabled=false;btn.textContent='Kirim Ucapan';return load();};
-    var fail=function(){btn.disabled=false;btn.textContent='Kirim Ucapan';alert('Maaf, ucapan belum terkirim. Coba lagi ya.');};
-    if(useDb){
-      fetch(api,{method:'POST',headers:Object.assign({'Content-Type':'application/json',Prefer:'return=minimal'},hdr),body:JSON.stringify(item)})
-        .then(function(r){if(!r.ok)throw 0;return done();}).catch(fail);
-    }else{
-      try{var l=local();item.created_at=new Date().toISOString();l.unshift(item);localStorage.setItem('ucapan',JSON.stringify(l.slice(0,50)));}catch(err){}
-      done();
-    }
+    btn.disabled=true;btn.textContent='Mengirim...';$('gbStatus').textContent='';
+    fetch('/api/guestbook',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(item).toString()})
+      .then(function(r){if(!r.ok)throw 0;return r.json();})
+      .then(function(result){
+        if(!result.ok)throw 0;
+        wishSubmissionId=crypto.randomUUID();$('gbPesan').value='';
+        $('gbStatus').textContent='Terima kasih! Ucapanmu sudah tersimpan dan dapat dibaca semua pengunjung.';
+        return load(false);
+      })
+      .catch(function(){$('gbStatus').textContent='Maaf, ucapan belum terkirim. Silakan coba lagi.';})
+      .finally(function(){btn.disabled=false;btn.textContent='Kirim Ucapan';});
   });
-  load();
+  load(false);
 
   // Album: pesawat mengikuti scroll + angka berhitung naik
   var calm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
