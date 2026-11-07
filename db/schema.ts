@@ -15,3 +15,14 @@ export const confirmations = pgTable('guest_confirmations', {
   check('valid_name', sql`char_length(trim(${table.name})) BETWEEN 1 AND 60`),
   check('valid_message', sql`char_length(${table.message}) <= 300`),
 ]);
+
+export const guestbook = pgTable('guestbook_messages', {
+  id: serial().primaryKey(),
+  submissionId: uuid('submission_id').notNull().unique(),
+  name: text('name').notNull(),
+  message: text('message').notNull(),
+  createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
+}, (table) => [
+  check('guestbook_valid_name', sql`char_length(trim(${table.name})) BETWEEN 1 AND 60`),
+  check('guestbook_valid_message', sql`char_length(trim(${table.message})) BETWEEN 1 AND 300`),
+]);

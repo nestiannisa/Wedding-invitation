@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "typecheck": "tsc --noEmit --module nodenext --moduleResolution nodenext --target es2022 --skipLibCheck netlify/functions/rsvp.mts db/index.ts db/schema.ts drizzle.config.ts"
+    "typecheck": "tsc --noEmit --module nodenext --moduleResolution nodenext --target es2022 --skipLibCheck netlify/functions/rsvp.mts netlify/functions/guestbook.mts db/index.ts db/schema.ts drizzle.config.ts"
   },
   "dependencies": {
     "@netlify/database": "^2.0.3",
