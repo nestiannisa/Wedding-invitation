@@ -1,0 +1,18 @@
+{
+  "name": "wedding-invitation",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "typecheck": "tsc --noEmit --module nodenext --moduleResolution nodenext --target es2022 --skipLibCheck netlify/functions/rsvp.mts db/index.ts db/schema.ts drizzle.config.ts"
+  },
+  "dependencies": {
+    "@netlify/database": "^2.0.3",
+    "@netlify/functions": "^6.1.1",
+    "drizzle-orm": "^1.0.0-beta.22"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "drizzle-kit": "^1.0.0-beta.22",
+    "typescript": "^7.0.2"
+  }
+}

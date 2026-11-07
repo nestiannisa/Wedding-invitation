@@ -1,0 +1,157 @@
+{
+  "version": "8",
+  "dialect": "postgres",
+  "id": "577c769a-19a8-4fea-acc3-05df0cdd04d8",
+  "prevIds": [
+    "00000000-0000-0000-0000-000000000000"
+  ],
+  "ddl": [
+    {
+      "isRlsEnabled": false,
+      "name": "guest_confirmations",
+      "entityType": "tables",
+      "schema": "public"
+    },
+    {
+      "type": "serial",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "id",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "guest_confirmations"
+    },
+    {
+      "type": "uuid",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "submission_id",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "guest_confirmations"
+    },
+    {
+      "type": "text",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "name",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "guest_confirmations"
+    },
+    {
+      "type": "text",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "attendance",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "guest_confirmations"
+    },
+    {
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "guest_count",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "guest_confirmations"
+    },
+    {
+      "type": "text",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "''",
+      "generated": null,
+      "identity": null,
+      "name": "message",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "guest_confirmations"
+    },
+    {
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "guest_confirmations"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "guest_confirmations_pkey",
+      "schema": "public",
+      "table": "guest_confirmations",
+      "entityType": "pks"
+    },
+    {
+      "nameExplicit": false,
+      "columns": [
+        "submission_id"
+      ],
+      "nullsNotDistinct": false,
+      "name": "guest_confirmations_submission_id_key",
+      "schema": "public",
+      "table": "guest_confirmations",
+      "entityType": "uniques"
+    },
+    {
+      "value": "\"attendance\" IN ('Hadir', 'Mungkin hadir', 'Maaf, tidak bisa hadir')",
+      "name": "valid_attendance",
+      "entityType": "checks",
+      "schema": "public",
+      "table": "guest_confirmations"
+    },
+    {
+      "value": "\"guest_count\" BETWEEN 0 AND 5",
+      "name": "valid_guest_count",
+      "entityType": "checks",
+      "schema": "public",
+      "table": "guest_confirmations"
+    },
+    {
+      "value": "char_length(trim(\"name\")) BETWEEN 1 AND 60",
+      "name": "valid_name",
+      "entityType": "checks",
+      "schema": "public",
+      "table": "guest_confirmations"
+    },
+    {
+      "value": "char_length(\"message\") <= 300",
+      "name": "valid_message",
+      "entityType": "checks",
+      "schema": "public",
+      "table": "guest_confirmations"
+    }
+  ],
+  "renames": []
+}
