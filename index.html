@@ -6,6 +6,8 @@
 <title>Undangan Pernikahan Fajar &amp; Nesti</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- LIBRARY SUPABASE -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
   
 .wrap p {
@@ -15,7 +17,6 @@
   .wrap-title {
     font-family:var(--head);
     font-size: 1.6rem;
-    /* font-size:clamp(.95rem,3.5vw,1.15rem); */
     font-weight:600;
     letter-spacing:.2em;
     color:var(--blue);
@@ -45,7 +46,6 @@
 
 .verse-label {
   font-family:var(--head);
-  /* font-size:.9rem; */
   font-size:clamp(.95rem,3.5vw,1.15rem);
   font-weight:600;
   letter-spacing:.2em;
@@ -59,7 +59,6 @@
   margin-bottom:18px;
 }
 
-
 .verse-text{
   font-family:var(--sans);
   font-size:clamp(.95rem,3.5vw,1.15rem);
@@ -69,7 +68,6 @@
   color:var(--deep);
   margin:0 auto 22px;
 }
-
 
 .verse-line{
   width:65px;
@@ -333,13 +331,8 @@ footer small{opacity:.75}
 <!-- AYAT CINTA QS AR-RUM 21 -->
 <section class="verse">
   <div class="verse-inner">
-
-    <div class="verse-label">
-      LOVE & BLESSING
-    </div>
-
+    <div class="verse-label">LOVE & BLESSING</div>
     <div class="verse-icon">✦</div>
-
     <p class="verse-text">
       "Di antara tanda kebesaran-Nya ialah
       diciptakan-Nya pasangan hidup bagimu
@@ -347,16 +340,10 @@ footer small{opacity:.75}
       ditumbuhkan-Nya rasa cinta dan kasih
       sayang di antara kalian berdua."
     </p>
-
     <div class="verse-line"></div>
-
-    <p class="verse-ref">
-      MAKNA DARI QS. AR-RUM : 21
-    </p>
-
+    <p class="verse-ref">MAKNA DARI QS. AR-RUM : 21</p>
   </div>
 </section>
-
 
 <section class="paper">
   <div class="wrap couple">
@@ -431,7 +418,7 @@ footer small{opacity:.75}
   </div>
 </section>
 
-<!-- BUKU PASPOR: setiap foto = satu chapter. Foto: foto1.png, foto2.jpeg, foto3.jpeg, foto4.jpeg, jogja.jpeg, foto8.jpg -->
+<!-- BUKU PASPOR -->
 <section class="paper">
   <div class="wrap center">
     <h2 class="big">Paspor Kami</h2>
@@ -444,7 +431,7 @@ footer small{opacity:.75}
         <small>Tap untuk membuka</small>
       </div>
 
-      <!-- HALAMAN 1 — Prologue (foto1.png) -->
+      <!-- HALAMAN 1 -->
       <div class="pg">
         <div class="ph1"><span>Our story, our journey, our forever</span><span>01 / 06</span></div>
         <div class="pp"><div class="ppi">Our Story<img src="foto14.jpeg" alt="Fajar dan Nesti" onerror="this.remove()"></div></div>
@@ -452,7 +439,7 @@ footer small{opacity:.75}
         <div class="rs"><span>EST.</span><b>2026</b><span>FAJAR &amp; NESTI</span></div>
       </div>
 
-      <!-- HALAMAN 2 — 01 The First Hello (foto2.jpeg) -->
+      <!-- HALAMAN 2 -->
       <div class="pg">
         <div class="ph1"><span>Our story, our journey, our forever</span><span>02 / 06</span></div>
         <div class="pp"><div class="ppi">The First Hello<img src="foto11.jpg" alt="The First Hello" onerror="this.remove()"></div></div>
@@ -464,7 +451,7 @@ footer small{opacity:.75}
         <div class="rs"><span>CHAPTER</span><b>01</b><span>THE BEGINNING</span></div>
       </div>
 
-      <!-- HALAMAN 3 — 02 A New Beginning (foto3.jpeg) -->
+      <!-- HALAMAN 3 -->
       <div class="pg">
         <div class="ph1"><span>Our story, our journey, our forever</span><span>03 / 06</span></div>
         <div class="pp"><div class="ppi">A New Beginning<img src="foto10.JPG" alt="A New Beginning" onerror="this.remove()"></div></div>
@@ -476,7 +463,7 @@ footer small{opacity:.75}
         <div class="rs"><span>CHAPTER</span><b>02</b><span>A NEW START</span></div>
       </div>
 
-      <!-- HALAMAN 4 — 03 Little Things (foto4.jpeg) -->
+      <!-- HALAMAN 4 -->
       <div class="pg">
         <div class="ph1"><span>Our story, our journey, our forever</span><span>04 / 06</span></div>
         <div class="pp"><div class="ppi">Little Things<img src="jogja.jpeg" alt="Little Things, Meaningful Moments" onerror="this.remove()"></div></div>
@@ -488,7 +475,7 @@ footer small{opacity:.75}
         <div class="rs"><span>CHAPTER</span><b>03</b><span>LITTLE MOMENTS</span></div>
       </div>
 
-      <!-- HALAMAN 5 — 04 When Feelings (jogja.jpeg) -->
+      <!-- HALAMAN 5 -->
       <div class="pg">
         <div class="ph1"><span>Our story, our journey, our forever</span><span>05 / 06</span></div>
         <div class="pp"><div class="ppi">When Feelings<img src="foto8.jpg" alt="When Feelings Found Their Way" onerror="this.remove()"></div></div>
@@ -500,7 +487,7 @@ footer small{opacity:.75}
         <div class="rs"><span>CHAPTER</span><b>04</b><span>GROWING LOVE</span></div>
       </div>
 
-      <!-- HALAMAN 6 — 05 A Lifetime Journey (foto8.jpg) -->
+      <!-- HALAMAN 6 -->
       <div class="pg">
         <div class="ph1"><span>Our story, our journey, our forever</span><span>06 / 06</span></div>
         <div class="pp"><div class="ppi">Our Forever<img src="foto12.jpg" alt="A Lifetime Journey" onerror="this.remove()"></div></div>
@@ -528,19 +515,19 @@ footer small{opacity:.75}
   </div>
 </section>
 
-<!-- RSVP (tersimpan di database) -->
+<!-- RSVP -->
 <section class="soft">
   <div class="wrap center">
     <h2 class="big">Check-in Kehadiran</h2>
     <p>Biar kami bisa menyiapkan tempat duduk terbaik buat kamu, kabari kami ya.</p>
-    <form id="rsvp" name="rsvp" method="POST" action="/api/rsvp">
-      <p hidden><label>Jangan diisi<input name="bot-field"></label></p>
+    <!-- Action dihilangkan karena diproses via Javascript ke Supabase -->
+    <form id="rsvp" name="rsvp">
       <label>Nama<input id="nm" name="nama" required maxlength="60" placeholder="Nama kamu"></label>
       <label>Kehadiran
         <select id="st" name="kehadiran"><option>Hadir</option><option>Mungkin hadir</option><option>Maaf, tidak bisa hadir</option></select>
       </label>
       <label>Jumlah tamu<input id="jm" name="jumlah" type="number" min="1" max="5" value="1" required></label>
-      <label>Pesan (opsional)<textarea name="pesan" maxlength="300" placeholder="Tulis pesan singkat untuk kami"></textarea></label>
+      <label>Pesan (opsional)<textarea id="psn_rsvp" name="pesan" maxlength="300" placeholder="Tulis pesan singkat untuk kami"></textarea></label>
       <button type="submit">Konfirmasi Check-in</button>
     </form>
     <div id="thanks">
@@ -556,28 +543,14 @@ footer small{opacity:.75}
     <h2 class="big">Buku Tamu</h2>
     <p class="center">Nama dan ucapanmu dapat dibaca semua pengunjung.</p>
     <form id="gbForm">
-      <p hidden><label>Jangan diisi<input id="gbBot" tabindex="-1" autocomplete="off"></label></p>
       <label>Nama<input id="gbNama" required maxlength="60" placeholder="Nama kamu"></label>
       <label>Ucapan &amp; doa<textarea id="gbPesan" required maxlength="300" placeholder="Tulis ucapan untuk kami"></textarea></label>
       <button type="submit" id="gbBtn">Kirim Ucapan</button>
     </form>
     <p id="gbStatus" role="status"></p>
     <div id="wishes" aria-label="Ucapan dari para tamu" aria-live="polite"></div>
-    <p id="gbLoadStatus" role="status"></p>
-    <button type="button" id="gbMore" hidden>Lihat ucapan lainnya</button>
   </div>
 </section>
-
-<!-- <section class="soft">
-  <div class="wrap">
-    <div class="gift">
-      <p>Doa restu kamu sudah lebih dari cukup. Kalau mau berbagi kado, bisa lewat:</p>
-      <span>Bank [Nama Bank] a.n. Fajar Annisa</span>
-      <b id="rek">1234 5678 90</b>
-      <button type="button" id="cp">Salin Nomor</button>
-    </div>
-  </div>
-</section> -->
 
 <footer>
   <h2>Sampai jumpa di tujuan</h2>
@@ -587,14 +560,24 @@ footer small{opacity:.75}
 </footer>
 
 <script>
-/* ===== PENGATURAN: ganti bagian ini saja ===== */
+/* ===== PENGATURAN ===== */
 var CONFIG = {
-  date: '2026-11-26T09:00:00+07:00',   // Date & jam akad (dipakai countdown)
-  wa: '6282124954934',                 // nomor WhatsApp, format 62...
-  music: 'FOREVER WITH YOU.mp3',       // file musik di folder yang sama (kosongkan '' kalau tidak pakai file)
-  musicBuiltin: true                   // true = kalau file tidak ada, pakai musik piano bawaan; false = tanpa musik
+  date: '2026-11-26T09:00:00+07:00',   // Date & jam akad
+  wa: '6282124954934',                 // nomor WhatsApp
+  music: 'FOREVER WITH YOU.mp3',       // file musik
+  musicBuiltin: true,
+  
+  // ==========================================
+  // MASUKKAN URL DAN KEY SUPABASE KAMU DI SINI
+  // ==========================================
+  supabaseUrl: 'URL_SUPABASE_KAMU', 
+  supabaseKey: 'ANON_KEY_SUPABASE_KAMU'
 };
 /* ============================================= */
+
+// Inisialisasi Klien Supabase
+var supabaseClient = window.supabase ? window.supabase.createClient(CONFIG.supabaseUrl, CONFIG.supabaseKey) : null;
+
 (function(){
   var $=function(id){return document.getElementById(id)};
 
@@ -602,7 +585,7 @@ var CONFIG = {
   var guest=(new URLSearchParams(location.search).get('to')||'').trim().slice(0,60);
   if(guest){$('guest').textContent=guest;$('nm').value=guest;$('gbNama').value=guest;}
 
-  // Musik: pakai file musik.mp3 kalau ada, kalau tidak ada otomatis pakai musik bawaan (piano lembut)
+  // Musik
   var music=$('music'),audio=null,synth=null,mode='';
   if(CONFIG.music){audio=new Audio(CONFIG.music);audio.loop=true;audio.volume=.6;audio.preload='auto';}
   function makeSynth(){
@@ -678,28 +661,71 @@ var CONFIG = {
   }
   tick();setInterval(tick,1000);
 
-  // RSVP -> database; ID yang sama mencegah duplikasi saat mencoba ulang.
+  // ==========================================
+  // LOGIKA RSVP SUPABASE
+  // ==========================================
   var form=$('rsvp');
-  var submissionId=crypto.randomUUID();
-  form.addEventListener('submit',function(e){
+  form.addEventListener('submit', async function(e){
     e.preventDefault();
-    var btn=form.querySelector('button');btn.disabled=true;btn.textContent='Mengirim...';
+    if(!supabaseClient) return alert("Konfigurasi Supabase belum diisi di dalam kode.");
+    
+    var btn=form.querySelector('button');
+    btn.disabled=true;btn.textContent='Mengirim...';
+    
     var msg='Halo Fajar & Nesti, saya '+$('nm').value+' ('+$('st').value+', '+$('jm').value+' orang) di pernikahan kalian.';
     $('wa').href='https://wa.me/'+CONFIG.wa+'?text='+encodeURIComponent(msg);
-    var data=new URLSearchParams(new FormData(form));data.set('submission_id',submissionId);
-    fetch('/api/rsvp',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:data.toString()})
-      .then(function(r){if(!r.ok)throw 0;return r.json();})
-      .then(function(result){if(!result.ok)throw 0;form.style.display='none';$('thanks').classList.add('show');})
-      .catch(function(){btn.disabled=false;btn.textContent='Konfirmasi Check-in';alert('Maaf, konfirmasi belum terkirim. Coba lagi ya.');});
+
+    // Kirim data ke tabel 'rsvp'
+    const { error } = await supabaseClient.from('rsvp').insert([{
+      nama: $('nm').value,
+      kehadiran: $('st').value,
+      jumlah: parseInt($('jm').value),
+      pesan: $('psn_rsvp').value
+    }]);
+
+    if (error) {
+      console.error(error);
+      btn.disabled=false;btn.textContent='Konfirmasi Check-in';
+      alert('Maaf, konfirmasi belum terkirim. Coba lagi ya.');
+    } else {
+      form.style.display='none';
+      $('thanks').classList.add('show');
+    }
   });
 
-  // Buku tamu publik, tersimpan di Netlify Database.
-  var nextWish=null,wishSubmissionId=crypto.randomUUID();
-  function fmt(iso){try{return new Date(iso).toLocaleString('id-ID',{day:'numeric',month:'long',year:'numeric',hour:'2-digit',minute:'2-digit'});}catch(e){return '';}}
-  function render(list,append){
-    var box=$('wishes');if(!append)box.textContent='';
-    if(!list.length){var p=document.createElement('p');p.className='empty';p.textContent='Belum ada ucapan. Jadi yang pertama ya!';box.appendChild(p);return;}
-    list.forEach(function(w){
+  // ==========================================
+  // LOGIKA BUKU TAMU SUPABASE
+  // ==========================================
+  function fmt(iso){
+    try{return new Date(iso).toLocaleString('id-ID',{day:'numeric',month:'long',year:'numeric',hour:'2-digit',minute:'2-digit'});}
+    catch(e){return '';}
+  }
+
+  async function loadGuestbook() {
+    if(!supabaseClient) return;
+    var box=$('wishes');
+    box.innerHTML='<p class="empty">Memuat ucapan...</p>';
+    
+    // Ambil data dari tabel 'guestbook', urutkan dari yang terbaru
+    const { data, error } = await supabaseClient
+      .from('guestbook')
+      .select('*')
+      .order('created_at', { ascending: false })
+      .limit(100);
+
+    if (error) {
+      console.error(error);
+      box.innerHTML='<p class="empty">Ucapan belum bisa dimuat. Silakan refresh halaman.</p>';
+      return;
+    }
+
+    box.innerHTML='';
+    if(!data || data.length === 0){
+      box.innerHTML='<p class="empty">Belum ada ucapan. Jadi yang pertama ya!</p>';
+      return;
+    }
+
+    data.forEach(function(w){
       var c=document.createElement('div');c.className='wish';
       var n=document.createElement('b');n.textContent=w.nama;
       var t=document.createElement('time');t.textContent=fmt(w.created_at);
@@ -707,44 +733,40 @@ var CONFIG = {
       c.appendChild(n);c.appendChild(t);c.appendChild(m);box.appendChild(c);
     });
   }
-  function load(append){
-    var more=$('gbMore');more.disabled=true;
-    $('gbLoadStatus').textContent='Memuat ucapan...';
-    return fetch('/api/guestbook'+(append&&nextWish?'?before='+nextWish:''))
-      .then(function(r){if(!r.ok)throw 0;return r.json();})
-      .then(function(result){
-        render(result.messages,append);nextWish=result.next;
-        more.hidden=!nextWish;more.textContent='Lihat ucapan lainnya';
-        $('gbLoadStatus').textContent='';
-      })
-      .catch(function(){
-        $('gbLoadStatus').textContent='Ucapan belum bisa dimuat. Silakan coba lagi.';
-        more.hidden=false;more.textContent='Coba muat lagi';
-      }).finally(function(){more.disabled=false;});
-  }
-  $('gbMore').addEventListener('click',function(){load(!!nextWish);});
-  $('gbForm').addEventListener('submit',function(e){
-    e.preventDefault();
-    var btn=$('gbBtn'),item={nama:$('gbNama').value.trim(),pesan:$('gbPesan').value.trim(),
-      submission_id:wishSubmissionId,'bot-field':$('gbBot').value};
-    if(!item.nama||!item.pesan)return;
-    btn.disabled=true;btn.textContent='Mengirim...';$('gbStatus').textContent='';
-    fetch('/api/guestbook',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(item).toString()})
-      .then(function(r){if(!r.ok)throw 0;return r.json();})
-      .then(function(result){
-        if(!result.ok)throw 0;
-        wishSubmissionId=crypto.randomUUID();$('gbPesan').value='';
-        $('gbStatus').textContent='Terima kasih! Ucapanmu sudah tersimpan dan dapat dibaca semua pengunjung.';
-        return load(false);
-      })
-      .catch(function(){$('gbStatus').textContent='Maaf, ucapan belum terkirim. Silakan coba lagi.';})
-      .finally(function(){btn.disabled=false;btn.textContent='Kirim Ucapan';});
-  });
-  load(false);
 
-  // Album: pesawat mengikuti scroll + angka berhitung naik
+  $('gbForm').addEventListener('submit', async function(e){
+    e.preventDefault();
+    if(!supabaseClient) return alert("Konfigurasi Supabase belum diisi di dalam kode.");
+    
+    var btn=$('gbBtn');
+    var nama=$('gbNama').value.trim(), pesan=$('gbPesan').value.trim();
+    if(!nama||!pesan)return;
+    
+    btn.disabled=true;btn.textContent='Mengirim...';$('gbStatus').textContent='';
+
+    // Kirim data ke tabel 'guestbook'
+    const { error } = await supabaseClient
+      .from('guestbook')
+      .insert([{ nama: nama, pesan: pesan }]);
+
+    if(error){
+      console.error(error);
+      $('gbStatus').textContent='Maaf, ucapan belum terkirim. Silakan coba lagi.';
+    } else {
+      $('gbPesan').value='';
+      $('gbStatus').textContent='Terima kasih! Ucapanmu sudah tersimpan dan dapat dibaca semua pengunjung.';
+      loadGuestbook(); // Refresh tampilan ucapan
+    }
+    btn.disabled=false;btn.textContent='Kirim Ucapan';
+  });
+
+  // Panggil saat halaman pertama dimuat
+  loadGuestbook();
+
+  // ==========================================
+  // LOGIKA PASPOR & UI LAINNYA
+  // ==========================================
   var calm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-  // Paspor: sampul terbuka, halaman dicap
   var ppt=$('ppt'),cv=$('pcv'),pgs=document.querySelectorAll('.pg'),pi=0,pcnt=$('pcnt'),pv=$('pprev'),nx=$('pnext');
   function pg(i){
     i=Math.max(0,Math.min(pgs.length-1,i));pi=i;
@@ -779,14 +801,6 @@ var CONFIG = {
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){count(e.target);io.unobserve(e.target);}});},{threshold:.6});
     nums.forEach(function(n){n.textContent='0';io.observe(n);});
   }
-
-  // Salin rekening (aman kalau bagian gift di-comment)
-  var cpBtn=$('cp');
-  if(cpBtn){cpBtn.addEventListener('click',function(){
-    var b=this;
-    try{navigator.clipboard.writeText($('rek').textContent.replace(/\s/g,'')).then(function(){b.textContent='Tersalin';});}
-    catch(err){b.textContent='Salin manual ya';}
-  });}
 })();
 </script>
 </body>
